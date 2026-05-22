@@ -104,98 +104,106 @@
               <li><strong>Case Study Tiki:</strong> Hỗ trợ <strong>hơn 10 phương thức thanh toán</strong> (Visa, ATM, MoMo, VNPay, ví TikiNow, COD, trả góp...) để gom trọn mọi phân khúc, tối thiểu hóa tỷ lệ rớt đơn.</li>
             </ul>
           </div>
-          <div class="slide-content-right">
-            <div class="diagram-container" style="padding: 0px; border: 1px solid var(--border-glass); overflow: hidden; position: relative;">
+          <div class="slide-content-right" style="height: 100%; width: 100%; min-height: 280px; display: flex; align-items: stretch;">
+            <div class="diagram-container" style="padding: 0px; border: 1px solid var(--border-glass); overflow: hidden; position: relative; width: 100%; height: 100%; min-height: 280px;">
               <div class="diagram-label" style="margin: 8px 15px 0; border-bottom: 1px dashed rgba(15,23,42,0.05); padding-bottom: 4px; z-index: 15; position: relative; display: flex; justify-content: space-between; align-items: center;">
-                <span>Quy trình thanh toán điện tử Việt Nam</span>
+                <span>Bản đồ tích hợp đa phương thức thanh toán</span>
                 <span class="lecturer-origin-btn" onclick="zoomImage('napas_ebanking_process.png', 'Sơ đồ Quy trình Thanh toán Điện tử trong Hệ thống Việt Nam (Slide thực tế của Giảng viên)')" style="font-size: 0.6rem; color: var(--accent-blue); cursor: pointer; text-transform: none; display: flex; align-items: center; gap: 3px; font-weight: 700; background: rgba(30, 58, 138, 0.05); padding: 2px 6px; border-radius: 4px;">
                   <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-                  Ảnh gốc GV
+                  Sơ đồ NAPAS gốc
                 </span>
               </div>
               
-              <div class="napas-flow-wrapper" style="position: relative; width: 100%; height: calc(100% - 35px); overflow: hidden;">
+              <div class="multipay-flow-wrapper" style="position: relative; width: 100%; height: calc(100% - 35px); overflow: hidden;">
                 <!-- SVG Canvas for connection paths -->
-                <svg viewBox="0 0 500 320" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5;">
+                <svg viewBox="0 0 500 280" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5;">
                   <defs>
-                    <marker id="arrow" viewBox="0 0 10 10" refX="22" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-                      <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(15, 23, 42, 0.15)" />
+                    <marker id="arrow-multi" viewBox="0 0 10 10" refX="18" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(15, 23, 42, 0.12)" />
                     </marker>
-                    <marker id="arrow-active" viewBox="0 0 10 10" refX="22" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <marker id="arrow-multi-active" viewBox="0 0 10 10" refX="18" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
                       <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent-blue)" />
                     </marker>
                   </defs>
                   
                   <!-- Background paths (dashed grey) -->
-                  <path d="M 60,160 Q 130,90 230,60" fill="none" stroke="rgba(15, 23, 42, 0.08)" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow)" />
-                  <path d="M 230,60 L 230,260" fill="none" stroke="rgba(15, 23, 42, 0.08)" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow)" />
-                  <path d="M 230,260 Q 330,160 430,60" fill="none" stroke="rgba(15, 23, 42, 0.08)" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow)" />
-                  <path d="M 430,60 L 430,260" fill="none" stroke="rgba(15, 23, 42, 0.08)" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow)" />
-                  <path d="M 430,260 L 230,260" fill="none" stroke="rgba(15, 23, 42, 0.08)" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow)" />
-                  <path d="M 230,260 Q 130,230 60,160" fill="none" stroke="rgba(15, 23, 42, 0.08)" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow)" />
+                  <path d="M 75,60 L 210,60" fill="none" stroke="rgba(15, 23, 42, 0.08)" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-multi)" />
+                  <path d="M 75,130 L 210,130" fill="none" stroke="rgba(15, 23, 42, 0.08)" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-multi)" />
+                  <path d="M 75,200 L 210,200" fill="none" stroke="rgba(15, 23, 42, 0.08)" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-multi)" />
+                  
+                  <path d="M 310,60 Q 370,80 415,115" fill="none" stroke="rgba(15, 23, 42, 0.08)" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-multi)" />
+                  <path d="M 310,130 L 400,130" fill="none" stroke="rgba(15, 23, 42, 0.08)" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-multi)" />
+                  <path d="M 310,200 Q 370,180 415,145" fill="none" stroke="rgba(15, 23, 42, 0.08)" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-multi)" />
                   
                   <!-- Active glowing paths -->
-                  <path id="napas-path-1" class="napas-active-path" d="M 60,160 Q 130,90 230,60" fill="none" stroke="transparent" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#arrow-active)" />
-                  <path id="napas-path-2" class="napas-active-path" d="M 230,60 L 230,260" fill="none" stroke="transparent" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#arrow-active)" />
-                  <path id="napas-path-3" class="napas-active-path" d="M 230,260 Q 330,160 430,60" fill="none" stroke="transparent" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#arrow-active)" />
-                  <path id="napas-path-4" class="napas-active-path" d="M 430,60 L 430,260" fill="none" stroke="transparent" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#arrow-active)" />
-                  <path id="napas-path-5" class="napas-active-path" d="M 430,260 L 230,260" fill="none" stroke="transparent" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#arrow-active)" />
-                  <path id="napas-path-6" class="napas-active-path" d="M 230,260 Q 130,230 60,160" fill="none" stroke="transparent" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#arrow-active)" />
+                  <path id="multi-path-1" class="multi-active-path" d="M 75,60 L 210,60" fill="none" stroke="transparent" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrow-multi-active)" />
+                  <path id="multi-path-2" class="multi-active-path" d="M 75,130 L 210,130" fill="none" stroke="transparent" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrow-multi-active)" />
+                  <path id="multi-path-3" class="multi-active-path" d="M 75,200 L 210,200" fill="none" stroke="transparent" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrow-multi-active)" />
+                  
+                  <path id="multi-path-4" class="multi-active-path" d="M 310,60 Q 370,80 415,115" fill="none" stroke="transparent" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrow-multi-active)" />
+                  <path id="multi-path-5" class="multi-active-path" d="M 310,130 L 400,130" fill="none" stroke="transparent" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrow-multi-active)" />
+                  <path id="multi-path-6" class="multi-active-path" d="M 310,200 Q 370,180 415,145" fill="none" stroke="transparent" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrow-multi-active)" />
                 </svg>
                 
                 <!-- Interactive HTML Nodes positioned absolutely -->
-                <!-- 1. Client -->
-                <div id="napas-node-1" class="napas-node node-client" style="left: 12%; top: 50%;">
-                  <div class="napas-node-icon" style="background: rgba(30, 58, 138, 0.08); color: var(--accent-blue);">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
-                  </div>
-                  <span class="napas-node-title">Khách hàng</span>
-                  <span class="napas-node-sub">App/Ví/Web</span>
+                <!-- User Nodes -->
+                <div id="multi-node-user-1" class="multi-node user-node" style="left: 15%; top: 22%;">
+                  <span class="node-tag-small" style="background: rgba(30, 58, 138, 0.08); color: var(--accent-blue);">Thế hệ trẻ</span>
+                  <span class="node-title-main">Sinh viên</span>
                 </div>
                 
-                <!-- 2. Merchant -->
-                <div id="napas-node-2" class="napas-node node-merchant" style="left: 46%; top: 18.75%;">
-                  <div class="napas-node-icon" style="background: rgba(88, 28, 135, 0.08); color: var(--accent-purple);">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4L3 12v2c0 .55.45 1 1 1h1v6h10v-6h4v6h2v-6h1c.55 0 1-.45 1-1zm-9 5H8v-4h4v4z"/></svg>
-                  </div>
-                  <span class="napas-node-title">Merchant</span>
-                  <span class="napas-node-sub">Cửa hàng/Tiki</span>
+                <div id="multi-node-user-2" class="multi-node user-node" style="left: 15%; top: 48%;">
+                  <span class="node-tag-small" style="background: rgba(15, 118, 110, 0.08); color: var(--accent-cyan);">Văn phòng</span>
+                  <span class="node-title-main">Nội trợ</span>
                 </div>
                 
-                <!-- 3. Gateway -->
-                <div id="napas-node-3" class="napas-node node-gateway" style="left: 46%; top: 81.25%;">
-                  <div class="napas-node-icon" style="background: rgba(15, 118, 110, 0.08); color: var(--accent-cyan);">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8z"/></svg>
-                  </div>
-                  <span class="napas-node-title">Cổng T.Toán</span>
-                  <span class="napas-node-sub">MoMo/VNPAY</span>
+                <div id="multi-node-user-3" class="multi-node user-node" style="left: 15%; top: 74%;">
+                  <span class="node-tag-small" style="background: rgba(159, 12, 57, 0.08); color: var(--accent-rose);">Nông thôn</span>
+                  <span class="node-title-main">Lớn tuổi</span>
                 </div>
                 
-                <!-- 4. Bank -->
-                <div id="napas-node-4" class="napas-node node-bank" style="left: 86%; top: 18.75%;">
-                  <div class="napas-node-icon" style="background: rgba(6, 95, 70, 0.08); color: var(--accent-emerald);">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 10h3v7H4zm6.5 0h3v7h-3zM2 22h19v-3H2zm15-12h3v7h-3zM11.5 2L2 6v2h19V6z"/></svg>
+                <!-- Payment Method Nodes -->
+                <div id="multi-node-method-1" class="multi-node method-node" style="left: 52%; top: 22%;">
+                  <div class="node-icon-wrapper" style="color: var(--accent-purple);">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
                   </div>
-                  <span class="napas-node-title">Ngân hàng</span>
-                  <span class="napas-node-sub">Phát hành</span>
+                  <span class="node-title-main">Ví Điện Tử</span>
+                  <span class="node-desc-sub">MoMo, ZaloPay</span>
                 </div>
                 
-                <!-- 5. NAPAS -->
-                <div id="napas-node-5" class="napas-node node-napas" style="left: 86%; top: 81.25%;">
-                  <div class="napas-node-icon" style="background: rgba(159, 12, 57, 0.08); color: var(--accent-rose);">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.25z"/></svg>
+                <div id="multi-node-method-2" class="multi-node method-node" style="left: 52%; top: 48%;">
+                  <div class="node-icon-wrapper" style="color: var(--accent-cyan);">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M4 10h3v7H4zm6.5 0h3v7h-3zM2 22h19v-3H2zm15-12h3v7h-3zM11.5 2L2 6v2h19V6z"/></svg>
                   </div>
-                  <span class="napas-node-title">NAPAS</span>
-                  <span class="napas-node-sub">Switch bù trừ</span>
+                  <span class="node-title-main">Chuyển Khoản</span>
+                  <span class="node-desc-sub">VietQR/NAPAS</span>
+                </div>
+                
+                <div id="multi-node-method-3" class="multi-node method-node" style="left: 52%; top: 74%;">
+                  <div class="node-icon-wrapper" style="color: var(--accent-rose);">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+                  </div>
+                  <span class="node-title-main">Tiền Mặt COD</span>
+                  <span class="node-desc-sub">Nhận hàng trả tiền</span>
+                </div>
+                
+                <!-- Central Merchant Hub Node -->
+                <div id="multi-node-merchant" class="multi-node merchant-hub-node" style="left: 86%; top: 48%;">
+                  <div class="hub-radar"></div>
+                  <div class="node-icon-wrapper" style="color: #fff; background: var(--gradient-primary); width: 26px; height: 26px;">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4L3 12v2c0 .55.45 1 1 1h1v6h10v-6h4v6h2v-6h1c.55 0 1-.45 1-1zm-9 5H8v-4h4v4z"/></svg>
+                  </div>
+                  <span class="node-title-main" style="color: var(--text-primary); font-size: 0.65rem; margin-top: 3px;">Tiki Hub</span>
+                  <span class="node-desc-sub" style="font-weight: 700; color: var(--accent-blue); font-size: 0.52rem;">Tích hợp đa kênh</span>
                 </div>
                 
                 <!-- Status bar with control button -->
-                <div class="napas-step-indicator glass-panel" style="position: absolute; bottom: 8px; left: 8px; right: 8px; padding: 6px 12px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; height: 48px; border: 1px solid var(--border-glass); background: rgba(255, 255, 255, 0.95); z-index: 20;">
-                  <div style="display: flex; flex-direction: column; text-align: left;">
-                    <span id="napas-step-title" style="font-size: 0.72rem; font-weight: 800; color: var(--accent-blue); text-transform: uppercase;">Mô phỏng quy trình</span>
-                    <span id="napas-step-desc" style="font-size: 0.68rem; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 250px; line-height: 1.2;">Bấm "Chạy" để xem hoạt ảnh 6 bước thanh toán.</span>
+                <div class="napas-step-indicator glass-panel" style="position: absolute; bottom: 8px; left: 8px; right: 8px; padding: 6px 12px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; height: 46px; border: 1px solid var(--border-glass); background: rgba(255, 255, 255, 0.95); z-index: 20;">
+                  <div style="display: flex; flex-direction: column; text-align: left; max-width: 78%;">
+                    <span id="multi-step-title" style="font-size: 0.72rem; font-weight: 800; color: var(--accent-blue); text-transform: uppercase;">Mô phỏng tích hợp</span>
+                    <span id="multi-step-desc" style="font-size: 0.66rem; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.2;">Bấm "Chạy" để xem cách cổng thanh toán Tiki thu gom dòng tiền.</span>
                   </div>
-                  <button id="btn-napas-play" style="background: var(--gradient-primary); border: none; color: #fff; padding: 4px 10px; border-radius: 12px; font-size: 0.68rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 4px; box-shadow: var(--shadow-glow); transition: var(--transition-fast);">
+                  <button id="btn-multi-play" style="background: var(--gradient-primary); border: none; color: #fff; padding: 4px 10px; border-radius: 12px; font-size: 0.68rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 4px; box-shadow: var(--shadow-glow); transition: var(--transition-fast);">
                     <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                     <span>Chạy</span>
                   </button>

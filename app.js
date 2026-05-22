@@ -190,11 +190,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* --- INTERACTIVE DIAGRAMS CONTROLLERS --- */
   function triggerDiagramAnimations(index) {
-    // Simulate Napas Flow (Slide 2)
+    // Simulate Multipay Flow (Slide 2)
     if (index === 1) {
-      animateNapasFlow();
+      animateMultiPaymentFlow();
     } else {
-      stopNapasFlow();
+      stopMultiPaymentFlow();
     }
 
     // Hosted Payment vs Direct API Chart (Slide 3)
@@ -220,131 +220,118 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Napas Flow Simulation Logic
-  let napasInterval = null;
-  let napasStep = 0;
-  let isNapasPlaying = false;
+  // Multi-Payment Method Simulation Logic
+  let multiInterval = null;
+  let multiStep = 0;
+  let isMultiPlaying = false;
 
-  const napasStepsData = [
+  const multiStepsData = [
     {
-      title: "Bước 1: Khởi tạo giao dịch",
-      desc: "Khách hàng chọn VietQR/Ví/Thẻ trên App/Web và bấm Thanh toán.",
-      activeNodes: [1],
-      activePaths: [1]
+      title: "Bước 1: Phân mảnh thói quen",
+      desc: "Sinh viên dùng Ví, Văn phòng chuyển khoản VietQR, Lớn tuổi thích COD.",
+      activeNodes: ["user-1", "user-2", "user-3", "method-1", "method-2", "method-3"],
+      activePaths: [1, 2, 3]
     },
     {
-      title: "Bước 2: Gửi yêu cầu thanh toán",
-      desc: "Merchant nhận yêu cầu và chuyển tiếp thông tin sang Cổng thanh toán.",
-      activeNodes: [2, 3],
-      activePaths: [2]
+      title: "Bước 2: Tích hợp Ví & VietQR",
+      desc: "Tiki tự động đồng bộ dòng tiền điện tử từ Ví & Ngân hàng về Tiki Merchant Hub.",
+      activeNodes: ["method-1", "method-2", "merchant"],
+      activePaths: [4, 5]
     },
     {
-      title: "Bước 3: Xác thực giao dịch",
-      desc: "Cổng thanh toán kết nối Ngân hàng phát hành để xác thực OTP/3D Secure.",
-      activeNodes: [3, 4],
-      activePaths: [3]
-    },
-    {
-      title: "Bước 4: Định tuyến & Bù trừ",
-      desc: "Ngân hàng phát hành chuyển thông tin qua NAPAS để đối soát và bù trừ.",
-      activeNodes: [4, 5],
-      activePaths: [4]
-    },
-    {
-      title: "Bước 5: Quyết toán dòng tiền",
-      desc: "NAPAS quyết toán qua ngân hàng và chuyển trạng thái về Cổng thanh toán.",
-      activeNodes: [5, 3],
-      activePaths: [5]
-    },
-    {
-      title: "Bước 6: Hoàn tất & Ghi Có",
-      desc: "Merchant nhận tiền (T+0), Khách hàng nhận thông báo thành công!",
-      activeNodes: [3, 2, 1],
+      title: "Bước 3: Số hóa đơn hàng COD",
+      desc: "Đơn hàng COD được đồng bộ trạng thái vận chuyển để tối ưu hóa đối soát về Hub.",
+      activeNodes: ["method-3", "merchant"],
       activePaths: [6]
+    },
+    {
+      title: "Bước 4: Gom trọn phân khúc",
+      desc: "Đa dạng hóa cổng thanh toán giúp Tiki tăng trưởng doanh thu, tối thiểu rớt đơn.",
+      activeNodes: ["user-1", "user-2", "user-3", "method-1", "method-2", "method-3", "merchant"],
+      activePaths: [1, 2, 3, 4, 5, 6]
     }
   ];
 
-  function animateNapasFlow() {
-    const playBtn = document.getElementById('btn-napas-play');
+  function animateMultiPaymentFlow() {
+    const playBtn = document.getElementById('btn-multi-play');
     if (!playBtn) return;
     
     if (!playBtn.dataset.bound) {
-      playBtn.addEventListener('click', toggleNapasPlay);
+      playBtn.addEventListener('click', toggleMultiPlay);
       playBtn.dataset.bound = "true";
     }
-    
-    // Auto start
-    startNapasFlow();
+    // Auto start simulation
+    startMultiPlay();
   }
 
-  function startNapasFlow() {
-    stopNapasFlow();
-    isNapasPlaying = true;
-    updateNapasPlayButton();
+  function startMultiPlay() {
+    stopMultiPaymentFlow();
+    isMultiPlaying = true;
+    updateMultiPlayButton();
     
-    napasStep = 0;
-    runNapasStep();
+    multiStep = 0;
+    runMultiStep();
     
-    napasInterval = setInterval(() => {
-      napasStep = (napasStep + 1) % napasStepsData.length;
-      runNapasStep();
-    }, 2500);
+    multiInterval = setInterval(() => {
+      multiStep = (multiStep + 1) % multiStepsData.length;
+      runMultiStep();
+    }, 2800);
   }
 
-  function runNapasStep() {
-    const stepData = napasStepsData[napasStep];
+  function runMultiStep() {
+    const stepData = multiStepsData[multiStep];
     if (!stepData) return;
     
-    const titleEl = document.getElementById('napas-step-title');
-    const descEl = document.getElementById('napas-step-desc');
+    const titleEl = document.getElementById('multi-step-title');
+    const descEl = document.getElementById('multi-step-desc');
     if (titleEl) titleEl.textContent = stepData.title;
     if (descEl) descEl.textContent = stepData.desc;
     
-    const nodes = document.querySelectorAll('.napas-node');
-    const paths = document.querySelectorAll('.napas-active-path');
+    const nodes = document.querySelectorAll('.multi-node');
+    const paths = document.querySelectorAll('.multi-active-path');
     
     nodes.forEach(n => n.classList.remove('active'));
     paths.forEach(p => p.classList.remove('active'));
     
     stepData.activeNodes.forEach(id => {
-      const el = document.getElementById(`napas-node-${id}`);
+      const el = document.getElementById(`multi-node-${id}`);
       if (el) el.classList.add('active');
     });
     
     stepData.activePaths.forEach(id => {
-      const el = document.getElementById(`napas-path-${id}`);
+      const el = document.getElementById(`multi-path-${id}`);
       if (el) el.classList.add('active');
     });
   }
 
-  function toggleNapasPlay() {
-    if (isNapasPlaying) {
-      clearInterval(napasInterval);
-      isNapasPlaying = false;
-      updateNapasPlayButton();
+  function toggleMultiPlay() {
+    if (isMultiPlaying) {
+      clearInterval(multiInterval);
+      isMultiPlaying = false;
+      updateMultiPlayButton();
     } else {
-      isNapasPlaying = true;
-      updateNapasPlayButton();
+      isMultiPlaying = true;
+      updateMultiPlayButton();
       
-      if (napasStep === napasStepsData.length - 1) {
-        napasStep = 0;
+      if (multiStep === multiStepsData.length - 1) {
+        multiStep = 0;
       } else {
-        napasStep = (napasStep + 1) % napasStepsData.length;
+        multiStep = (multiStep + 1) % multiStepsData.length;
       }
-      runNapasStep();
+      runMultiStep();
       
-      napasInterval = setInterval(() => {
-        napasStep = (napasStep + 1) % napasStepsData.length;
-        runNapasStep();
-      }, 2500);
+      multiInterval = setInterval(() => {
+        multiStep = (multiStep + 1) % multiStepsData.length;
+        runMultiStep();
+      }, 2800);
     }
   }
 
-  function updateNapasPlayButton() {
-    const playBtn = document.getElementById('btn-napas-play');
+  function updateMultiPlayButton() {
+    const playBtn = document.getElementById('btn-multi-play');
     if (!playBtn) return;
     
-    if (isNapasPlaying) {
+    if (isMultiPlaying) {
       playBtn.innerHTML = `
         <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor">
           <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
@@ -361,18 +348,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function stopNapasFlow() {
-    clearInterval(napasInterval);
-    isNapasPlaying = false;
-    updateNapasPlayButton();
+  function stopMultiPaymentFlow() {
+    clearInterval(multiInterval);
+    isMultiPlaying = false;
+    updateMultiPlayButton();
     
-    const titleEl = document.getElementById('napas-step-title');
-    const descEl = document.getElementById('napas-step-desc');
-    if (titleEl) titleEl.textContent = "Mô phỏng quy trình";
-    if (descEl) descEl.textContent = "Bấm 'Chạy' để xem hoạt ảnh 6 bước thanh toán.";
+    const titleEl = document.getElementById('multi-step-title');
+    const descEl = document.getElementById('multi-step-desc');
+    if (titleEl) titleEl.textContent = "Mô phỏng tích hợp";
+    if (descEl) descEl.textContent = "Bấm 'Chạy' để xem cách cổng thanh toán Tiki thu gom dòng tiền.";
     
-    const nodes = document.querySelectorAll('.napas-node');
-    const paths = document.querySelectorAll('.napas-active-path');
+    const nodes = document.querySelectorAll('.multi-node');
+    const paths = document.querySelectorAll('.multi-active-path');
     nodes.forEach(n => n.classList.remove('active'));
     paths.forEach(p => p.classList.remove('active'));
   }

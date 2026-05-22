@@ -873,16 +873,14 @@ header {
   color: var(--text-secondary);
 }
 
-/* --- INTERACTIVE NAPAS DIAGRAM (SLIDE 2) --- */
-.napas-flow-wrapper {
+/* --- MULTI-PAYMENT INTERACTIVE MAP (SLIDE 2) --- */
+.multipay-flow-wrapper {
   background: var(--bg-secondary);
 }
 
-.napas-node {
+.multi-node {
   position: absolute;
   transform: translate(-50%, -50%);
-  width: 96px;
-  height: 60px;
   background: #ffffff;
   border: 1.5px solid rgba(15, 23, 42, 0.08);
   border-radius: 8px;
@@ -894,37 +892,100 @@ header {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 10;
   text-align: center;
-  padding: 4px;
+  padding: 4px 8px;
 }
 
-.napas-node:hover {
+.multi-node:hover {
   border-color: rgba(30, 58, 138, 0.2);
   box-shadow: 0 8px 16px rgba(15, 23, 42, 0.04);
 }
 
-.napas-node.active {
+.user-node {
+  width: 90px;
+  height: 48px;
+}
+
+.method-node {
+  width: 105px;
+  height: 52px;
+}
+
+.merchant-hub-node {
+  width: 120px;
+  height: 75px;
+  border-color: rgba(30, 58, 138, 0.15);
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.05);
+}
+
+/* Active states with specialized colors for each node type! */
+#multi-node-user-1.active {
   border-color: var(--accent-blue);
   background: rgba(30, 58, 138, 0.03);
   box-shadow: 0 8px 20px -5px rgba(30, 58, 138, 0.15), 0 0 0 3px rgba(30, 58, 138, 0.06);
-  transform: translate(-50%, -50%) scale(1.06);
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
-.napas-node-icon {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#multi-node-user-2.active {
+  border-color: var(--accent-cyan);
+  background: rgba(15, 118, 110, 0.03);
+  box-shadow: 0 8px 20px -5px rgba(15, 118, 110, 0.15), 0 0 0 3px rgba(15, 118, 110, 0.06);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+#multi-node-user-3.active {
+  border-color: var(--accent-rose);
+  background: rgba(159, 12, 57, 0.03);
+  box-shadow: 0 8px 20px -5px rgba(159, 12, 57, 0.15), 0 0 0 3px rgba(159, 12, 57, 0.06);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+#multi-node-method-1.active {
+  border-color: var(--accent-purple);
+  background: rgba(88, 28, 135, 0.03);
+  box-shadow: 0 8px 20px -5px rgba(88, 28, 135, 0.15), 0 0 0 3px rgba(88, 28, 135, 0.06);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+#multi-node-method-2.active {
+  border-color: var(--accent-cyan);
+  background: rgba(15, 118, 110, 0.03);
+  box-shadow: 0 8px 20px -5px rgba(15, 118, 110, 0.15), 0 0 0 3px rgba(15, 118, 110, 0.06);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+#multi-node-method-3.active {
+  border-color: var(--accent-rose);
+  background: rgba(159, 12, 57, 0.03);
+  box-shadow: 0 8px 20px -5px rgba(159, 12, 57, 0.15), 0 0 0 3px rgba(159, 12, 57, 0.06);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+#multi-node-merchant.active {
+  border-color: transparent;
+  background: var(--gradient-primary);
+  box-shadow: 0 10px 25px rgba(30, 58, 138, 0.25), 0 0 0 4px rgba(30, 58, 138, 0.1);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+#multi-node-merchant.active .node-title-main {
+  color: #ffffff !important;
+}
+
+#multi-node-merchant.active .node-desc-sub {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Other helper styles */
+.node-tag-small {
+  font-size: 0.52rem;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 4px;
+  text-transform: uppercase;
   margin-bottom: 2px;
-  transition: var(--transition-fast);
 }
 
-.napas-node.active .napas-node-icon {
-  transform: scale(1.1);
-}
-
-.napas-node-title {
+.node-title-main {
   font-family: var(--font-title);
   font-size: 0.62rem;
   font-weight: 700;
@@ -932,27 +993,107 @@ header {
   line-height: 1.2;
 }
 
-.napas-node-sub {
+.node-desc-sub {
   font-size: 0.52rem;
   color: var(--text-muted);
   font-weight: 500;
   line-height: 1.1;
+  margin-top: 1px;
 }
 
-.napas-active-path {
+.node-icon-wrapper {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+  transition: var(--transition-fast);
+}
+
+.multi-node.active .node-icon-wrapper {
+  transform: scale(1.1);
+}
+
+#multi-node-merchant.active .node-icon-wrapper {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
+.multi-active-path {
   stroke-dashoffset: 0;
-  transition: stroke 0.3s ease;
+  transition: stroke 0.3s ease, stroke-width 0.3s ease;
 }
 
-.napas-active-path.active {
+/* Individual path active colors */
+#multi-path-1.active {
   stroke: var(--accent-blue);
-  animation: napasDash 0.8s linear infinite;
+  animation: multipayDash 0.8s linear infinite;
   filter: drop-shadow(0 0 3px rgba(30, 58, 138, 0.4));
 }
 
-@keyframes napasDash {
+#multi-path-2.active {
+  stroke: var(--accent-cyan);
+  animation: multipayDash 0.8s linear infinite;
+  filter: drop-shadow(0 0 3px rgba(15, 118, 110, 0.4));
+}
+
+#multi-path-3.active {
+  stroke: var(--accent-rose);
+  animation: multipayDash 0.8s linear infinite;
+  filter: drop-shadow(0 0 3px rgba(159, 12, 57, 0.4));
+}
+
+#multi-path-4.active {
+  stroke: var(--accent-purple);
+  animation: multipayDash 0.8s linear infinite;
+  filter: drop-shadow(0 0 3px rgba(88, 28, 135, 0.4));
+}
+
+#multi-path-5.active {
+  stroke: var(--accent-cyan);
+  animation: multipayDash 0.8s linear infinite;
+  filter: drop-shadow(0 0 3px rgba(15, 118, 110, 0.4));
+}
+
+#multi-path-6.active {
+  stroke: var(--accent-rose);
+  animation: multipayDash 0.8s linear infinite;
+  filter: drop-shadow(0 0 3px rgba(159, 12, 57, 0.4));
+}
+
+@keyframes multipayDash {
   to {
-    stroke-dashoffset: -14;
+    stroke-dashoffset: -12;
+  }
+}
+
+.hub-radar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid rgba(30, 58, 138, 0.25);
+  border-radius: 8px;
+  pointer-events: none;
+  animation: hubPulse 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  opacity: 0;
+  z-index: -1;
+}
+
+.merchant-hub-node.active .hub-radar {
+  opacity: 1;
+}
+
+@keyframes hubPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
   }
 }
 
