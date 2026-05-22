@@ -190,6 +190,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* --- INTERACTIVE DIAGRAMS CONTROLLERS --- */
   function triggerDiagramAnimations(index) {
+    // Simulate Napas Flow (Slide 2)
+    if (index === 1) {
+      animateNapasFlow();
+    } else {
+      stopNapasFlow();
+    }
+
     // Hosted Payment vs Direct API Chart (Slide 3)
     if (index === 2) {
       setTimeout(() => {
@@ -211,6 +218,163 @@ document.addEventListener('DOMContentLoaded', () => {
     if (index === 4) {
       animateEcosystemLoop();
     }
+  }
+
+  // Napas Flow Simulation Logic
+  let napasInterval = null;
+  let napasStep = 0;
+  let isNapasPlaying = false;
+
+  const napasStepsData = [
+    {
+      title: "Bước 1: Khởi tạo giao dịch",
+      desc: "Khách hàng chọn VietQR/Ví/Thẻ trên App/Web và bấm Thanh toán.",
+      activeNodes: [1],
+      activePaths: [1]
+    },
+    {
+      title: "Bước 2: Gửi yêu cầu thanh toán",
+      desc: "Merchant nhận yêu cầu và chuyển tiếp thông tin sang Cổng thanh toán.",
+      activeNodes: [2, 3],
+      activePaths: [2]
+    },
+    {
+      title: "Bước 3: Xác thực giao dịch",
+      desc: "Cổng thanh toán kết nối Ngân hàng phát hành để xác thực OTP/3D Secure.",
+      activeNodes: [3, 4],
+      activePaths: [3]
+    },
+    {
+      title: "Bước 4: Định tuyến & Bù trừ",
+      desc: "Ngân hàng phát hành chuyển thông tin qua NAPAS để đối soát và bù trừ.",
+      activeNodes: [4, 5],
+      activePaths: [4]
+    },
+    {
+      title: "Bước 5: Quyết toán dòng tiền",
+      desc: "NAPAS quyết toán qua ngân hàng và chuyển trạng thái về Cổng thanh toán.",
+      activeNodes: [5, 3],
+      activePaths: [5]
+    },
+    {
+      title: "Bước 6: Hoàn tất & Ghi Có",
+      desc: "Merchant nhận tiền (T+0), Khách hàng nhận thông báo thành công!",
+      activeNodes: [3, 2, 1],
+      activePaths: [6]
+    }
+  ];
+
+  function animateNapasFlow() {
+    const playBtn = document.getElementById('btn-napas-play');
+    if (!playBtn) return;
+    
+    if (!playBtn.dataset.bound) {
+      playBtn.addEventListener('click', toggleNapasPlay);
+      playBtn.dataset.bound = "true";
+    }
+    
+    // Auto start
+    startNapasFlow();
+  }
+
+  function startNapasFlow() {
+    stopNapasFlow();
+    isNapasPlaying = true;
+    updateNapasPlayButton();
+    
+    napasStep = 0;
+    runNapasStep();
+    
+    napasInterval = setInterval(() => {
+      napasStep = (napasStep + 1) % napasStepsData.length;
+      runNapasStep();
+    }, 2500);
+  }
+
+  function runNapasStep() {
+    const stepData = napasStepsData[napasStep];
+    if (!stepData) return;
+    
+    const titleEl = document.getElementById('napas-step-title');
+    const descEl = document.getElementById('napas-step-desc');
+    if (titleEl) titleEl.textContent = stepData.title;
+    if (descEl) descEl.textContent = stepData.desc;
+    
+    const nodes = document.querySelectorAll('.napas-node');
+    const paths = document.querySelectorAll('.napas-active-path');
+    
+    nodes.forEach(n => n.classList.remove('active'));
+    paths.forEach(p => p.classList.remove('active'));
+    
+    stepData.activeNodes.forEach(id => {
+      const el = document.getElementById(`napas-node-${id}`);
+      if (el) el.classList.add('active');
+    });
+    
+    stepData.activePaths.forEach(id => {
+      const el = document.getElementById(`napas-path-${id}`);
+      if (el) el.classList.add('active');
+    });
+  }
+
+  function toggleNapasPlay() {
+    if (isNapasPlaying) {
+      clearInterval(napasInterval);
+      isNapasPlaying = false;
+      updateNapasPlayButton();
+    } else {
+      isNapasPlaying = true;
+      updateNapasPlayButton();
+      
+      if (napasStep === napasStepsData.length - 1) {
+        napasStep = 0;
+      } else {
+        napasStep = (napasStep + 1) % napasStepsData.length;
+      }
+      runNapasStep();
+      
+      napasInterval = setInterval(() => {
+        napasStep = (napasStep + 1) % napasStepsData.length;
+        runNapasStep();
+      }, 2500);
+    }
+  }
+
+  function updateNapasPlayButton() {
+    const playBtn = document.getElementById('btn-napas-play');
+    if (!playBtn) return;
+    
+    if (isNapasPlaying) {
+      playBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor">
+          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+        </svg>
+        <span>Dừng</span>
+      `;
+    } else {
+      playBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+        <span>Chạy</span>
+      `;
+    }
+  }
+
+  function stopNapasFlow() {
+    clearInterval(napasInterval);
+    isNapasPlaying = false;
+    updateNapasPlayButton();
+    
+    const titleEl = document.getElementById('napas-step-title');
+    const descEl = document.getElementById('napas-step-desc');
+    if (titleEl) titleEl.textContent = "Mô phỏng quy trình";
+    if (descEl) descEl.textContent = "Bấm 'Chạy' để xem hoạt ảnh 6 bước thanh toán.";
+    
+    const nodes = document.querySelectorAll('.napas-node');
+    const paths = document.querySelectorAll('.napas-active-path');
+    nodes.forEach(n => n.classList.remove('active'));
+    paths.forEach(p => p.classList.remove('active'));
   }
 
   // Tokenization simulation step-by-step

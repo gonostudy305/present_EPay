@@ -873,6 +873,98 @@ header {
   color: var(--text-secondary);
 }
 
+/* --- INTERACTIVE NAPAS DIAGRAM (SLIDE 2) --- */
+.napas-flow-wrapper {
+  background: var(--bg-secondary);
+}
+
+.napas-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 96px;
+  height: 60px;
+  background: #ffffff;
+  border: 1.5px solid rgba(15, 23, 42, 0.08);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+  text-align: center;
+  padding: 4px;
+}
+
+.napas-node:hover {
+  border-color: rgba(30, 58, 138, 0.2);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.04);
+}
+
+.napas-node.active {
+  border-color: var(--accent-blue);
+  background: rgba(30, 58, 138, 0.03);
+  box-shadow: 0 8px 20px -5px rgba(30, 58, 138, 0.15), 0 0 0 3px rgba(30, 58, 138, 0.06);
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+.napas-node-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+  transition: var(--transition-fast);
+}
+
+.napas-node.active .napas-node-icon {
+  transform: scale(1.1);
+}
+
+.napas-node-title {
+  font-family: var(--font-title);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.napas-node-sub {
+  font-size: 0.52rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.napas-active-path {
+  stroke-dashoffset: 0;
+  transition: stroke 0.3s ease;
+}
+
+.napas-active-path.active {
+  stroke: var(--accent-blue);
+  animation: napasDash 0.8s linear infinite;
+  filter: drop-shadow(0 0 3px rgba(30, 58, 138, 0.4));
+}
+
+@keyframes napasDash {
+  to {
+    stroke-dashoffset: -14;
+  }
+}
+
+.lecturer-origin-btn:hover {
+  background: rgba(30, 58, 138, 0.1) !important;
+  transform: scale(1.03);
+}
+
+.napas-step-indicator {
+  transition: var(--transition-smooth);
+}
+
 /* --- Q&A / CRITICAL DEBATE SIMULATOR --- */
 .qa-container {
   width: 100%;
