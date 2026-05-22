@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thuyết Trình: Tối Ưu Thanh Toán Điện Tử & Tăng Doanh Thu TMĐT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Gradients Glow -->
+  <div class="bg-glows">
+    <div class="glow-circle glow-1"></div>
+    <div class="glow-circle glow-2"></div>
+    <div class="glow-circle glow-3"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+        </svg>
+      </div>
+      <div>
+        <span class="logo-text"><span class="gradient-text">E-Payment</span> Academy</span>
+        <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 600;">UEL - PHÁT TRIỂN THƯƠNG MẠI DI ĐỘNG</div>
+      </div>
+    </div>
+    
+    <ul class="nav-links">
+      <li><a class="active" href="#presentation">Chế độ Thuyết Trình</a></li>
+      <li><a href="#qa-simulator">Góc Phản Biện Q&A</a></li>
+    </ul>
+
+    <div class="mode-switcher">
+      <div class="mode-btn active" id="mode-present">Thuyết Trình (Slide)</div>
+      <a href="#qa-simulator" class="mode-btn" style="text-decoration: none;" id="mode-luyen-tap">Luyện Phản Biện</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER FOR SLIDE MODE -->
+  <section id="presentation" class="presentation-container">
+    
+    <div class="slide-deck glass-panel">
+      
+      <!-- SLIDE 1: INTRO -->
+      <div class="slide active" id="slide-1">
+        <div class="slide-header">
+          <span class="slide-tag">Mở đầu - Đặt vấn đề</span>
+          <span class="slide-duration">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            20 Giây
+          </span>
+        </div>
+        
+        <div class="slide-body">
+          <div class="slide-content-left">
+            <h2 class="slide-title">Hành Trình Mua Sắm Bị Đứt Gãy Tại <span class="gradient-text">Điểm Chạm Cuối?</span></h2>
+            <p class="slide-desc" style="font-size: 1.15rem; font-style: italic; color: var(--accent-cyan);">
+              "Các bạn có bao giờ đang mua hàng trên Shopee, đến bước thanh toán thì app bị lỗi, và các bạn... tắt luôn không mua nữa không?"
+            </p>
+            <ul class="slide-bullets">
+              <li>Đó chính là nỗi đau lớn nhất: Khoảng <strong>70% giỏ hàng online bị bỏ hoang</strong> tại bước thanh toán.</li>
+              <li>Thanh toán điện tử là <strong>xương sống của TMĐT</strong> — kết nối Logistics, Information Flow và dòng tiền.</li>
+              <li>Doanh nghiệp kiểm soát tốt "xương sống" này sẽ mở khóa <strong>tăng trưởng doanh thu vượt trội</strong>.</li>
+            </ul>
+          </div>
+          <div class="slide-content-right">
+            <div style="text-align: center; background: rgba(244, 63, 94, 0.05); padding: 30px; border-radius: 20px; border: 1px dashed rgba(244, 63, 94, 0.2);">
+              <h3 style="font-size: 3.5rem; color: var(--accent-rose); line-height: 1;" class="gradient-text">70%</h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px; font-weight: 500;">Tỷ lệ bỏ giỏ hàng trung bình ngành TMĐT</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="slide-footer">
+          <span>Chương 2: Hệ Thống Thanh Toán Điện Tử</span>
+          <span class="slide-number">Slide 1 / 7</span>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: MULTI-PAYMENT -->
+      <div class="slide" id="slide-2">
+        <div class="slide-header">
+          <span class="slide-tag">Chiến lược 1</span>
+          <span class="slide-duration">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            60 Giây
+          </span>
+        </div>
+        
+        <div class="slide-body">
+          <div class="slide-content-left">
+            <h2 class="slide-title">Tích Hợp <span class="gradient-text">Đa Phương Thức</span> Thanh Toán</h2>
+            <p class="slide-desc">Khách hàng Việt Nam có thói quen thanh toán vô cùng phân mảnh:</p>
+            <ul class="slide-bullets">
+              <li><strong>Sinh viên/Thế hệ trẻ:</strong> Quen dùng ví điện tử (MoMo, ZaloPay, ShopeePay).</li>
+              <li><strong>Người nội trợ/Văn phòng:</strong> Chuộng chuyển khoản nhanh (VietQR liên ngân hàng qua NAPAS).</li>
+              <li><strong>Người lớn tuổi/Nông thôn:</strong> Vẫn thích COD để giảm rủi ro lừa đảo.</li>
+              <li><strong>Case Study Tiki:</strong> Hỗ trợ <strong>hơn 10 phương thức thanh toán</strong> (Visa, ATM, MoMo, VNPay, ví TikiNow, COD, trả góp...) để gom trọn mọi phân khúc, tối thiểu hóa tỷ lệ rớt đơn.</li>
+            </ul>
+          </div>
+          <div class="slide-content-right">
+            <div class="diagram-container">
+              <div class="diagram-label">Hạ tầng thanh toán đa lớp</div>
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px;">
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 10px; text-align: center;">
+                  <span style="color: var(--accent-blue); font-size: 1.1rem; font-weight: 700; display: block;">VietQR</span>
+                  <span style="font-size: 0.65rem; color: var(--text-muted);">NAPAS Chuyển mạch</span>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 10px; text-align: center;">
+                  <span style="color: var(--accent-purple); font-size: 1.1rem; font-weight: 700; display: block;">MoMo</span>
+                  <span style="font-size: 0.65rem; color: var(--text-muted);">Ví Điện Tử Phổ Biến</span>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 10px; text-align: center;">
+                  <span style="color: var(--accent-cyan); font-size: 1.1rem; font-weight: 700; display: block;">Visa/Master</span>
+                  <span style="font-size: 0.65rem; color: var(--text-muted);">Cổng Thẻ Quốc Tế</span>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 10px; text-align: center;">
+                  <span style="color: var(--accent-emerald); font-size: 1.1rem; font-weight: 700; display: block;">COD</span>
+                  <span style="font-size: 0.65rem; color: var(--text-muted);">Mạng Lưới Giao Nhận</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="slide-footer">
+          <span>Chương 2: Hệ Thống Thanh Toán Điện Tử</span>
+          <span class="slide-number">Slide 2 / 7</span>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: CHECKOUT OPTIMIZATION -->
+      <div class="slide" id="slide-3">
+        <div class="slide-header">
+          <span class="slide-tag">Chiến lược 2</span>
+          <span class="slide-duration">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            60 Giây
+          </span>
+        </div>
+        
+        <div class="slide-body">
+          <div class="slide-content-left">
+            <h2 class="slide-title">Tối Ưu Checkout & <span class="gradient-text">Tokenization</span></h2>
+            <p class="slide-desc">Bài giảng: <i>"Mỗi bước được cắt giảm đều giúp tăng khả năng hoàn tất đơn hàng."</i></p>
+            <ul class="slide-bullets">
+              <li><strong>One-Click Payment:</strong> Chỉ cần xác thực thẻ lần đầu, các lần sau bấm 1 nút là mua được ngay (Shopee áp dụng).</li>
+              <li><strong>Công nghệ Tokenization:</strong> Thay thế số thẻ thực bằng <strong>mã token ngẫu nhiên</strong> để lưu trữ, đảm bảo tuyệt đối an toàn bảo mật, tuân thủ chuẩn quốc tế <strong>PCI DSS</strong>.</li>
+              <li><strong>Direct API vs Hosted Redirect:</strong> Chuyển hướng thanh toán sang web bên thứ 3 làm <strong>giảm 7% conversion rate</strong>. Tích hợp Direct API giữ khách hàng trên app/web liền mạch.</li>
+            </ul>
+          </div>
+          <div class="slide-content-right">
+            <div class="diagram-container">
+              <div class="diagram-label">Tác động chuyển đổi & Tokenization</div>
+              <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 15px; height: 100%;">
+                
+                <!-- Tokenization steps -->
+                <div class="tokenization-flow">
+                  <div class="flow-step">
+                    <div class="flow-step-num">1</div>
+                    <div class="flow-step-text">
+                      <h4>Nhập thẻ thực</h4>
+                      <p>Khách hàng điền thông tin</p>
+                    </div>
+                  </div>
+                  <div class="flow-connector"></div>
+                  <div class="flow-step">
+                    <div class="flow-step-num">2</div>
+                    <div class="flow-step-text">
+                      <h4>Mã hóa Token</h4>
+                      <p>PCI-DSS Vault trả mã</p>
+                    </div>
+                  </div>
+                  <div class="flow-connector"></div>
+                  <div class="flow-step">
+                    <div class="flow-step-num">3</div>
+                    <div class="flow-step-text">
+                      <h4>One-Click mua</h4>
+                      <p>Thanh toán bằng token</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Hosted vs Direct Drop off chart -->
+                <div class="chart-box" style="padding-bottom: 5px;">
+                  <div class="chart-bar-group">
+                    <div class="chart-bar-wrapper" style="height: 140px; width: 30px;">
+                      <div class="chart-bar chart-bar-hosted" style="height: 67%;"></div>
+                    </div>
+                    <span class="chart-label" style="font-size: 0.65rem;">Hosted<br><strong style="color: var(--accent-rose);">Drop 7%</strong></span>
+                  </div>
+                  <div class="chart-bar-group">
+                    <div class="chart-bar-wrapper" style="height: 140px; width: 30px;">
+                      <div class="chart-bar chart-bar-direct" style="height: 93%;"></div>
+                    </div>
+                    <span class="chart-label" style="font-size: 0.65rem;">Direct API<br><strong style="color: var(--accent-emerald);">Mượt</strong></span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="slide-footer">
+          <span>Chương 2: Hệ Thống Thanh Toán Điện Tử</span>
+          <span class="slide-number">Slide 3 / 7</span>
+        </div>
+      </div>
+
+      <!-- SLIDE 4: DATA EXPLOITATION -->
+      <div class="slide" id="slide-4">
+        <div class="slide-header">
+          <span class="slide-tag">Chiến lược 3</span>
+          <span class="slide-duration">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            60 Giây
+          </span>
+        </div>
+        
+        <div class="slide-body">
+          <div class="slide-content-left">
+            <h2 class="slide-title">Khai Thác <span class="gradient-text">Dữ Liệu Giao Dịch</span> để Tăng Doanh Thu</h2>
+            <p class="slide-desc">Mỗi giao dịch điện tử là một điểm dữ liệu vàng về hành vi khách hàng:</p>
+            <ul class="slide-bullets">
+              <li><strong>Insight Hành Vi:</strong> Cho biết AOV (Giá trị đơn hàng trung bình), tần suất mua sắm, thời gian giao dịch cao điểm, phương thức yêu thích.</li>
+              <li><strong>Case Study Grab:</strong> Phân tích lịch sử GrabPay để biết người dùng đặt món gì vào khung giờ nào, gửi trực tiếp voucher cá nhân hóa (Personalization) để kích cầu mua lại.</li>
+              <li><strong>Tối ưu hóa chiến dịch:</strong> Tung chương trình ưu đãi giảm giá ví điện tử đúng ngày nhận lương (cuối tháng) để tăng AOV.</li>
+            </ul>
+          </div>
+          <div class="slide-content-right">
+            <div class="diagram-container" style="justify-content: center; align-items: center; gap: 15px;">
+              <div class="diagram-label">Phễu chuyển hóa dữ liệu</div>
+              <div style="width: 100%; display: flex; flex-direction: column; gap: 8px;">
+                <div style="background: rgba(59, 130, 246, 0.2); border: 1px solid var(--accent-blue); padding: 8px 15px; border-radius: 6px; text-align: center; font-size: 0.8rem;">
+                  1. Data Giao Dịch (AOV, Thời gian, Ví dùng)
+                </div>
+                <div style="background: rgba(139, 92, 246, 0.2); border: 1px solid var(--accent-purple); padding: 8px 15px; border-radius: 6px; text-align: center; font-size: 0.8rem; width: 85%; margin: auto;">
+                  2. AI phân tích hồ sơ hành vi
+                </div>
+                <div style="background: rgba(6, 182, 212, 0.2); border: 1px solid var(--accent-cyan); padding: 8px 15px; border-radius: 6px; text-align: center; font-size: 0.8rem; width: 70%; margin: auto;">
+                  3. Cá nhân hóa Voucher đúng thời điểm
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="slide-footer">
+          <span>Chương 2: Hệ Thống Thanh Toán Điện Tử</span>
+          <span class="slide-number">Slide 4 / 7</span>
+        </div>
+      </div>
+
+      <!-- SLIDE 5: ECOSYSTEM -->
+      <div class="slide" id="slide-5">
+        <div class="slide-header">
+          <span class="slide-tag">Chiến lược 4</span>
+          <span class="slide-duration">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            60 Giây
+          </span>
+        </div>
+        
+        <div class="slide-body">
+          <div class="slide-content-left">
+            <h2 class="slide-title">Xây Dựng <span class="gradient-text">Hệ Sinh Thái Khép Kín</span></h2>
+            <p class="slide-desc">Đỉnh cao của chiến lược thanh toán - giữ chân dòng tiền ở lại:</p>
+            <ul class="slide-bullets">
+              <li><strong>Mô hình Ví + Tích Điểm:</strong> Ví điện tử liên kết sâu với nền tảng và chương trình Loyalty Program.</li>
+              <li><strong>Case Study Shopee & ShopeePay:</strong> Khách nạp tiền vào ShopeePay → Thanh toán mua hàng → Nhận hoàn tiền bằng Shopee Xu → Tiêu Shopee Xu trong lần sau.</li>
+              <li><strong>Lợi ích vượt bậc:</strong> Tăng tần suất mua sắm (Retention Rate), giữ dòng tiền luân chuyển trong hệ sinh thái, giảm tối đa chi phí Marketing lôi kéo khách hàng.</li>
+            </ul>
+          </div>
+          <div class="slide-content-right">
+            <div class="diagram-container">
+              <div class="diagram-label">Vòng lặp hệ sinh thái khép kín</div>
+              <div class="ecosystem-loop">
+                <div class="eco-orbit"></div>
+                <div class="eco-center">Shopee<br>System</div>
+                <div class="eco-item eco-1 active">Nạp Tiền</div>
+                <div class="eco-item eco-2">Mua Hàng</div>
+                <div class="eco-item eco-3">Tích Xu</div>
+                <div class="eco-item eco-4">Tái Tiêu</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="slide-footer">
+          <span>Chương 2: Hệ Thống Thanh Toán Điện Tử</span>
+          <span class="slide-number">Slide 5 / 7</span>
+        </div>
+      </div>
+
+      <!-- SLIDE 6: BNPL -->
+      <div class="slide" id="slide-6">
+        <div class="slide-header">
+          <span class="slide-tag">Chiến lược 5</span>
+          <span class="slide-duration">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            60 Giây
+          </span>
+        </div>
+        
+        <div class="slide-body">
+          <div class="slide-content-left">
+            <h2 class="slide-title">Kích Cầu Doanh Thu Bằng <span class="gradient-text">Buy Now Pay Later (BNPL)</span></h2>
+            <p class="slide-desc">Mô hình "Mua ngay trả sau" loại bỏ hoàn toàn rào cản tài chính tức thì:</p>
+            <ul class="slide-bullets">
+              <li><strong>Tâm lý chi tiêu:</strong> Khách hàng sẵn sàng mua sản phẩm giá trị lớn khi không phải thanh toán toàn bộ một lúc.</li>
+              <li><strong>Tích hợp thông minh:</strong> Website TMĐT liên kết Fundiin hoặc Kredivo để cung cấp dịch vụ trả góp nhanh không cần thẻ tín dụng ngân hàng.</li>
+              <li><strong>Ví dụ máy lọc nước 10 triệu:</strong> Khách hàng không đủ tiền ngay vẫn chốt mua nhờ chia nhỏ thanh toán thành 3 tháng. Giúp doanh nghiệp chốt đơn giá trị cao tức thì.</li>
+            </ul>
+          </div>
+          <div class="slide-content-right">
+            <div class="diagram-container">
+              <div class="diagram-label">Mô hình hợp tác BNPL</div>
+              <div class="bnpl-benefits">
+                <div class="bnpl-card">
+                  <div class="bnpl-card-icon bnpl-merchant">M</div>
+                  <div class="bnpl-card-text">
+                    <h4>Với Doanh Nghiệp (AKIA)</h4>
+                    <p>Chốt đơn giá trị cao, tăng 20% AOV</p>
+                  </div>
+                </div>
+                <div class="bnpl-card">
+                  <div class="bnpl-card-icon bnpl-customer">C</div>
+                  <div class="bnpl-card-text">
+                    <h4>Với Khách Hàng</h4>
+                    <p>Chia nhỏ tài chính, không lo nợ thẻ tín dụng</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="slide-footer">
+          <span>Chương 2: Hệ Thống Thanh Toán Điện Tử</span>
+          <span class="slide-number">Slide 6 / 7</span>
+        </div>
+      </div>
+
+      <!-- SLIDE 7: CONCLUSION -->
+      <div class="slide" id="slide-7">
+        <div class="slide-header">
+          <span class="slide-tag">Kết luận</span>
+          <span class="slide-duration">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            30 Giây
+          </span>
+        </div>
+        
+        <div class="slide-body">
+          <div class="slide-content-left">
+            <h2 class="slide-title">Mở Khóa Tăng Trưởng Lấy <span class="gradient-text">Niềm Tin Làm Nền Tảng</span></h2>
+            <p class="slide-desc" style="font-size: 1.1rem;">Khung chiến lược tăng trưởng bền vững cho doanh nghiệp TMĐT:</p>
+            <ul class="slide-bullets">
+              <li><strong>5 bước đi phối hợp:</strong> Đa dạng phương thức → Tối ưu checkout → Khai thác dữ liệu → BNPL → Xây dựng hệ sinh thái khép kín.</li>
+              <li><strong>Bảo Mật và Niềm Tin:</strong> Tất cả chỉ bền vững khi xây dựng trên nền tảng an toàn thông tin (SSL/TLS, PCI DSS, 3D Secure 2.0).</li>
+              <li style="color: var(--accent-cyan);"><strong>Thông điệp cuối:</strong> <i>"Không có bảo mật, không có niềm tin, không có thanh toán điện tử."</i></li>
+            </ul>
+          </div>
+          <div class="slide-content-right">
+            <div style="position: relative; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center;">
+              <!-- Lock Shield SVG Icon -->
+              <svg viewBox="0 0 24 24" width="100" height="100" fill="url(#grad-purple)">
+                <defs>
+                  <linearGradient id="grad-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="var(--accent-blue)" />
+                    <stop offset="100%" stop-color="var(--accent-purple)" />
+                  </linearGradient>
+                </defs>
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 6h2v2h-2V7zm0 4h2v6h-2v-6z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="slide-footer">
+          <span>Chương 2: Hệ Thống Thanh Toán Điện Tử</span>
+          <span class="slide-number">Slide 7 / 7</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SMART PRESENTATION CONTROLS -->
+    <div class="presenter-controller">
+      
+      <!-- Slide deck nav -->
+      <div class="deck-navigation glass-panel">
+        <div class="nav-buttons">
+          <button class="btn-nav" id="btn-prev" disabled>
+            <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+          <button class="btn-nav" id="btn-next">
+            <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button>
+        </div>
+        
+        <div class="progress-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        
+        <div style="font-size: 0.9rem; color: var(--text-secondary);">
+          Trang <span id="slide-num-current" style="color: var(--text-primary); font-weight: 700;">1</span> / <span id="slide-num-total">7</span>
+        </div>
+      </div>
+
+      <!-- Presenter Assistant Timer -->
+      <div class="timer-panel glass-panel">
+        <div class="timer-hud">
+          <div class="timer-ring">
+            <svg class="timer-svg">
+              <circle class="timer-circle-bg" cx="27" cy="27" r="25"></circle>
+              <circle class="timer-circle-val" cx="27" cy="27" r="25"></circle>
+            </svg>
+            <span class="timer-text">20s</span>
+          </div>
+          <div class="timer-controls">
+            <span class="timer-clock">00:20</span>
+            <span class="timer-section-name">Mở đầu - Đặt vấn đề</span>
+          </div>
+        </div>
+        
+        <button class="btn-timer-action" id="btn-timer-action">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          Tập thuyết trình
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- INTERACTIVE Q&A DEBATE SIMULATOR -->
+  <section id="qa-simulator" class="qa-container">
+    
+    <h2 class="section-title-qa">Góc Phản Biện Q&A Thầy Có Thể Hỏi</h2>
+    <p class="section-subtitle-qa">
+      Các câu hỏi phản biện cân não được phân nhóm theo chuẩn học thuật. Click vào từng câu hỏi để luyện tập phản xạ thuyết trình xuất sắc trước hội đồng.
+    </p>
+
+    <div class="qa-layout">
+      
+      <!-- QA Sidebar Selector -->
+      <div class="qa-sidebar">
+        
+        <div class="qa-filter-group">
+          <button class="qa-filter-btn active" data-filter="all">Tất cả</button>
+          <button class="qa-filter-btn" data-filter="concept">Làm Rõ</button>
+          <button class="qa-filter-btn" data-filter="debate">Phản Biện</button>
+          <button class="qa-filter-btn" data-filter="practice">Vận Dụng</button>
+        </div>
+
+        <div class="question-list">
+          <!-- Q1 -->
+          <div class="question-card glass-panel" data-id="q1" data-cat="concept">
+            <span class="question-card-cat cat-concept">Làm Rõ Khái Niệm</span>
+            <h3>Q1: Tokenization là gì và tại sao an toàn hơn lưu thẻ trực tiếp?</h3>
+          </div>
+          <!-- Q2 -->
+          <div class="question-card glass-panel" data-id="q2" data-cat="concept">
+            <span class="question-card-cat cat-concept">Làm Rõ Khái Niệm</span>
+            <h3>Q2: Hệ thống AI Fraud Detection chấm điểm Risk Scoring như thế nào?</h3>
+          </div>
+          <!-- Q3 -->
+          <div class="question-card glass-panel" data-id="q3" data-cat="debate">
+            <span class="question-card-cat cat-debate">Phản Biện Quan Điểm</span>
+            <h3>Q3: Doanh nghiệp nhỏ có nên tích hợp nhiều phương thức thanh toán?</h3>
+          </div>
+          <!-- Q4 -->
+          <div class="question-card glass-panel" data-id="q4" data-cat="debate">
+            <span class="question-card-cat cat-debate">Phản Biện Quan Điểm</span>
+            <h3>Q4: Khai thác dữ liệu giao dịch có vi phạm Nghị định 13/2023/NĐ-CP?</h3>
+          </div>
+          <!-- Q5 -->
+          <div class="question-card glass-panel" data-id="q5" data-cat="practice">
+            <span class="question-card-cat cat-practice">Vận Dụng Thực Tế</span>
+            <h3>Q5: AKIA Smart Home nên ưu tiên tích hợp phương thức nào trước?</h3>
+          </div>
+          <!-- Q6 -->
+          <div class="question-card glass-panel" data-id="q6" data-cat="practice">
+            <span class="question-card-cat cat-practice">Vận Dụng Thực Tế</span>
+            <h3>Q6: Tại sao Chargeback nguy hiểm và cách đối phó của Merchant?</h3>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- QA Content Panel -->
+      <div class="qa-content-panel glass-panel">
+        
+        <!-- Placeholder when no question is selected -->
+        <div class="qa-placeholder">
+          <svg viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+          </svg>
+          <p style="font-weight: 500;">Chọn một câu hỏi phản biện ở thanh bên để xem gợi ý phản hồi đắt giá từ chuyên gia.</p>
+        </div>
+
+        <!-- Active Content Display -->
+        <div class="qa-active-content">
+          
+          <div class="qa-active-header">
+            <h2 class="qa-active-title" id="qa-title">Câu hỏi phản biện sẽ hiển thị ở đây</h2>
+          </div>
+
+          <div class="qa-active-body">
+            
+            <div class="answer-section">
+              <strong>💡 Gợi ý câu trả lời khoa học</strong>
+              <p id="qa-answer">Nội dung câu trả lời chi tiết và logic giúp bạn trả lời trôi chảy trước thầy cô.</p>
+            </div>
+
+            <div class="answer-section">
+              <strong>🔑 Các từ khóa (Keyword) đắt giá cần nhấn mạnh</strong>
+              <div class="keyword-badge-group" id="qa-badges">
+                <span class="keyword-badge">Keyword 1</span>
+                <span class="keyword-badge">Keyword 2</span>
+              </div>
+            </div>
+
+            <!-- Tip Alert -->
+            <div class="alert-compliance">
+              <strong>💡 Mẹo lấy điểm tuyệt đối từ thầy cô</strong>
+              <p id="qa-tip">Mẹo thực tế giúp chứng minh bạn thực sự thấu hiểu bài giảng và có liên hệ thực tế sâu sắc.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
