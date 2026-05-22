@@ -68,9 +68,11 @@
             </ul>
           </div>
           <div class="slide-content-right">
-            <div style="text-align: center; background: rgba(244, 63, 94, 0.05); padding: 30px; border-radius: 20px; border: 1px dashed rgba(244, 63, 94, 0.2);">
-              <h3 style="font-size: 3.5rem; color: var(--accent-rose); line-height: 1;" class="gradient-text">70%</h3>
-              <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px; font-weight: 500;">Tỷ lệ bỏ giỏ hàng trung bình ngành TMĐT</p>
+            <div class="diagram-container" style="position: relative; overflow: hidden; padding: 0; width: 100%; height: 100%; border: 1px solid var(--border-glass);">
+              <img src="slide1_checkout_error.png" alt="Checkout Error" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+              <div style="position: absolute; bottom: 15px; left: 15px; right: 15px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(15,23,42,0.08); text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <span style="font-size: 1.8vmin; font-weight: 800; color: var(--accent-rose);">70% giỏ hàng bị bỏ rơi tại thanh toán</span>
+              </div>
             </div>
           </div>
         </div>
@@ -103,24 +105,13 @@
             </ul>
           </div>
           <div class="slide-content-right">
-            <div class="diagram-container">
-              <div class="diagram-label">Hạ tầng thanh toán đa lớp</div>
-              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px;">
-                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 10px; text-align: center;">
-                  <span style="color: var(--accent-blue); font-size: 1.1rem; font-weight: 700; display: block;">VietQR</span>
-                  <span style="font-size: 0.65rem; color: var(--text-muted);">NAPAS Chuyển mạch</span>
-                </div>
-                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 10px; text-align: center;">
-                  <span style="color: var(--accent-purple); font-size: 1.1rem; font-weight: 700; display: block;">MoMo</span>
-                  <span style="font-size: 0.65rem; color: var(--text-muted);">Ví Điện Tử Phổ Biến</span>
-                </div>
-                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 10px; text-align: center;">
-                  <span style="color: var(--accent-cyan); font-size: 1.1rem; font-weight: 700; display: block;">Visa/Master</span>
-                  <span style="font-size: 0.65rem; color: var(--text-muted);">Cổng Thẻ Quốc Tế</span>
-                </div>
-                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 10px; text-align: center;">
-                  <span style="color: var(--accent-emerald); font-size: 1.1rem; font-weight: 700; display: block;">COD</span>
-                  <span style="font-size: 0.65rem; color: var(--text-muted);">Mạng Lưới Giao Nhận</span>
+            <div class="diagram-container" style="padding: 5px; cursor: pointer; border: 1px solid var(--border-glass);" onclick="zoomImage('napas_ebanking_process.png', 'Sơ đồ Quy trình Thanh toán Điện tử trong Hệ thống Việt Nam (Slide thực tế của Giảng viên)')">
+              <div class="diagram-label" style="margin-bottom: 5px; border-bottom: 1px dashed rgba(15,23,42,0.05); padding-bottom: 4px;">Quy trình thanh toán điện tử Việt Nam</div>
+              <div style="position: relative; width: 100%; height: calc(100% - 25px); overflow: hidden; border-radius: 8px;">
+                <img src="napas_ebanking_process.png" alt="Quy trình thanh toán Việt Nam" style="width: 100%; height: 100%; object-fit: contain; background: #fff; transition: transform 0.3s; border-radius: 6px;">
+                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(15,23,42,0.85); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 1.1vmin; font-weight: 700; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                  Click Phóng to
                 </div>
               </div>
             </div>
@@ -233,18 +224,10 @@
             </ul>
           </div>
           <div class="slide-content-right">
-            <div class="diagram-container" style="justify-content: center; align-items: center; gap: 15px;">
-              <div class="diagram-label">Phễu chuyển hóa dữ liệu</div>
-              <div style="width: 100%; display: flex; flex-direction: column; gap: 8px;">
-                <div style="background: rgba(59, 130, 246, 0.2); border: 1px solid var(--accent-blue); padding: 8px 15px; border-radius: 6px; text-align: center; font-size: 0.8rem;">
-                  1. Data Giao Dịch (AOV, Thời gian, Ví dùng)
-                </div>
-                <div style="background: rgba(139, 92, 246, 0.2); border: 1px solid var(--accent-purple); padding: 8px 15px; border-radius: 6px; text-align: center; font-size: 0.8rem; width: 85%; margin: auto;">
-                  2. AI phân tích hồ sơ hành vi
-                </div>
-                <div style="background: rgba(6, 182, 212, 0.2); border: 1px solid var(--accent-cyan); padding: 8px 15px; border-radius: 6px; text-align: center; font-size: 0.8rem; width: 70%; margin: auto;">
-                  3. Cá nhân hóa Voucher đúng thời điểm
-                </div>
+            <div class="diagram-container" style="position: relative; overflow: hidden; padding: 0; width: 100%; height: 100%; border: 1px solid var(--border-glass);">
+              <img src="slide4_data_analytics.png" alt="AI Data Analytics" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+              <div style="position: absolute; bottom: 15px; left: 15px; right: 15px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(15,23,42,0.08); text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <span style="font-size: 1.8vmin; font-weight: 800; color: var(--accent-blue);">AI & Dữ liệu giao dịch cá nhân hóa</span>
               </div>
             </div>
           </div>
@@ -318,23 +301,10 @@
             </ul>
           </div>
           <div class="slide-content-right">
-            <div class="diagram-container">
-              <div class="diagram-label">Mô hình hợp tác BNPL</div>
-              <div class="bnpl-benefits">
-                <div class="bnpl-card">
-                  <div class="bnpl-card-icon bnpl-merchant">M</div>
-                  <div class="bnpl-card-text">
-                    <h4>Với Doanh Nghiệp (AKIA)</h4>
-                    <p>Chốt đơn giá trị cao, tăng 20% AOV</p>
-                  </div>
-                </div>
-                <div class="bnpl-card">
-                  <div class="bnpl-card-icon bnpl-customer">C</div>
-                  <div class="bnpl-card-text">
-                    <h4>Với Khách Hàng</h4>
-                    <p>Chia nhỏ tài chính, không lo nợ thẻ tín dụng</p>
-                  </div>
-                </div>
+            <div class="diagram-container" style="position: relative; overflow: hidden; padding: 0; width: 100%; height: 100%; border: 1px solid var(--border-glass);">
+              <img src="slide6_bnpl.png" alt="Buy Now Pay Later" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+              <div style="position: absolute; bottom: 15px; left: 15px; right: 15px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(15,23,42,0.08); text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <span style="font-size: 1.8vmin; font-weight: 800; color: var(--accent-emerald);">BNPL: Mua trước trả sau kích cầu doanh thu</span>
               </div>
             </div>
           </div>
@@ -367,17 +337,11 @@
             </ul>
           </div>
           <div class="slide-content-right">
-            <div style="position: relative; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center;">
-              <!-- Lock Shield SVG Icon -->
-              <svg viewBox="0 0 24 24" width="100" height="100" fill="url(#grad-purple)">
-                <defs>
-                  <linearGradient id="grad-purple" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="var(--accent-blue)" />
-                    <stop offset="100%" stop-color="var(--accent-purple)" />
-                  </linearGradient>
-                </defs>
-                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 6h2v2h-2V7zm0 4h2v6h-2v-6z"/>
-              </svg>
+            <div class="diagram-container" style="position: relative; overflow: hidden; padding: 0; width: 100%; height: 100%; border: 1px solid var(--border-glass);">
+              <img src="slide7_cybersecurity.png" alt="Cybersecurity & Trust" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+              <div style="position: absolute; bottom: 15px; left: 15px; right: 15px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(15,23,42,0.08); text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <span style="font-size: 1.8vmin; font-weight: 800; color: var(--accent-purple);">Bảo mật & Niềm tin làm gốc rễ phát triển</span>
+              </div>
             </div>
           </div>
         </div>
@@ -550,6 +514,42 @@
     </div>
 
   </section>
+
+  <!-- IMAGE LIGHTBOX DIALOG -->
+  <div id="image-lightbox" class="lightbox-modal" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+  </div>
+
+  <script>
+    // Javascript inline helper for Image Zoom Lightbox
+    function zoomImage(src, caption) {
+      const lightbox = document.getElementById('image-lightbox');
+      const img = document.getElementById('lightbox-img');
+      const captionText = document.getElementById('lightbox-caption');
+      
+      if (lightbox && img && captionText) {
+        lightbox.style.display = 'flex';
+        img.src = src;
+        captionText.innerHTML = caption;
+      }
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('image-lightbox');
+      if (lightbox) {
+        lightbox.style.display = 'none';
+      }
+    }
+
+    // Close on Escape key press
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+  </script>
 
   <script src="app.js"></script>
 </body>
